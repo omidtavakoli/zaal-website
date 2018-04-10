@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport"    content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author"      content="Sergey Pozhilov (GetTemplate.com)">
+
+	<title>live demo</title>
+
+	<link rel="shortcut icon" href="/miras-tech.github.io/zaal-website/">
+
+	
+	<link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.no-icons.min.css" rel="stylesheet">
+	
+	<link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+	
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alice|Open+Sans:400,300,700">
+	
+	<link rel="stylesheet" href="/miras-tech.github.io/zaal-website/css/styles.css">
+
+	
+
+    
+        <script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=&product=inline-share-buttons"></script>
+    
+
+</head>
+
+<body class="home">
+
+<header id="header">
+	<div id="head" class="parallax" parallax-speed="2">
+		<h1 id="logo" class="text-center">
+			<img class="img-circle" src="/miras-tech.github.io/zaal-website/images/zaal_logo.png" alt="" style="max-width: 30%; length: 10%;">
+			<span class="title">Zaal</span>
+			<span class="tagline">Persian NLP Toolbox as a Service<br>
+				<a href="">zaal@miras-tech.com</a>
+            </span>
+		</h1>
+	</div>
+
+    <nav class="navbar navbar-default navbar-sticky">
+    <div class="container-fluid">
+
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="true">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+
+        <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1">
+
+            <ul class="nav navbar-nav">
+                
+                <li>
+                    <a href="/miras-tech.github.io/zaal-website/">home</a>
+                </li>
+                
+                <li>
+                    <a href="/miras-tech.github.io/zaal-website/post/">blog</a>
+                </li>
+                
+                <li>
+                    <a href="/miras-tech.github.io/zaal-website/team/">team</a>
+                </li>
+                
+                <li>
+                    <a href="/miras-tech.github.io/zaal-website/about/">About</a>
+                </li>
+                
+                <li>
+                    <a href="/miras-tech.github.io/zaal-website/demo/">live demo</a>
+                </li>
+                
+                
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
+
+</header>
+
+
+<main id="main">
+
+	<div class="container">
+
+		<div class="row topspace">
+			<div class="col-sm-8 col-sm-offset-2">
+
+ 				<article class="post">
+					<header class="entry-header">
+ 						<div class="entry-meta">
+ 							<span class="posted-on"><time class="entry-date published" date="0001-01-01 00:00:00 &#43;0000 UTC"></time></span>
+ 						</div>
+ 						<h1 class="entry-title"><a href="/miras-tech.github.io/zaal-website/demo/" rel="bookmark">live demo</a></h1>
+					</header>
+					<div class="entry-content">
+						<p><html lang="en">
+<head>
+  <title>تحلیل احساسات</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body></p>
+
+<script type="text/javascript" language="javascript">
+
+function userActionDSA() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("POST", "http://89.165.11.238:9091/Zaal/api", false);
+    xhttp.setRequestHeader("Content-type", "application/json");
+    xhttp.setRequestHeader('Access-Control-Allow-Origin', '*');
+    var doc = document.getElementById("document_dsa").value
+    var load = `{"method": "sentiment_analyzer", "args":{"document":"${doc}"}}`;
+    xhttp.send(load);
+    if (xhttp.status == 200) {
+        var obj = JSON.parse(xhttp.responseText);
+        document.getElementById("score_dsa").value = obj.results.pay_load.sentiment_score
+    } else if (xhttp.status == 401) {
+          alert(xhttp.responseText)
+    }
+    else {
+        alert("No connection to server ...")
+    }
+}
+
+function userActionASA() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("POST", "http://89.165.11.238:9091/Zaal/api", false);
+    xhttp.setRequestHeader("Content-type", "application/json");
+    xhttp.setRequestHeader('Access-Control-Allow-Origin', '*');
+    var doc = document.getElementById("document_asa").value
+    var aspect = document.getElementById("aspect").value
+    
+    var load = `{"method": "aspect_sentiment_analyzer", "args":{"document": "${doc}", "aspect": "${aspect}"}}`;
+    
+    xhttp.send(load);
+    if (xhttp.status == 200) {
+        var obj = JSON.parse(xhttp.responseText);
+        document.getElementById("score_asa").value = obj.results.pay_load.sentiment_score
+    } else if (xhttp.status == 401) {
+          alert(xhttp.responseText)
+    }
+    else {
+        alert("An error occurred ...")
+    }
+}
+
+
+function json2table(json, classes) {
+  var cols = Object.keys(json[0]);
+  var headerRow = '';
+  var bodyRows = '';
+  classes = classes || '';
+  cols.map(function(col) {
+  headerRow += '<th>' + col + '</th>';
+});
+
+json.map(function(row) {
+  bodyRows += '<tr>';
+
+  cols.map(function(colName) {
+  bodyRows += '<td>' + row[colName] + '</td>';
+});
+
+  bodyRows += '</tr>';
+});
+
+
+return '<table class="table table-striped text-center" style="display:inline; width:300px; text-align:center" ><thead><tr>' +
+       headerRow +
+       '</tr></thead><tbody>' +
+       bodyRows +
+       '</tbody></table>';
+
+}
+
+function userActionDC() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("POST", "http://89.165.11.238:9091/Zaal/api", false);
+    xhttp.setRequestHeader("Content-type", "application/json");
+    xhttp.setRequestHeader('Access-Control-Allow-Origin', '*');
+    var doc = document.getElementById("document_dc").value
+    var load = `{"method": "document_classifier", "args":{"document":"${doc}"}}`;
+    xhttp.send(load);
+    if (xhttp.status == 200) {
+        var data = []
+        var responseJson = JSON.parse(xhttp.responseText);
+        for (var key in responseJson.results.pay_load) {
+                if (data.indexOf(key) === -1) {
+                    data.push({"class": key, "class weight": responseJson.results.pay_load[key]});
+                }
+            }
+        
+      
+      document.getElementById('classTable').innerHTML = json2table(data);
+    } else if (xhttp.status == 401) {
+          alert(xhttp.responseText)
+    }
+    else {
+        alert("No connection to server ...")
+    }
+}
+
+
+function isBlank(str) {
+    return (!str || /^\s*$/.test(str));
+}
+
+function userActionEE() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("POST", "http://89.165.11.238:9091/Zaal/api", false);
+    xhttp.setRequestHeader("Content-type", "application/json");
+    xhttp.setRequestHeader('Access-Control-Allow-Origin', '*');
+    var word = document.getElementById("word").value
+    var k = document.getElementById("k").value
+    
+    if (isBlank(k)){
+    k = 1
+    }
+    
+    var load = `{"method": "word_suggester", "args":{"word": "${word}", "k-nearest": ${k}}}`;
+    
+    xhttp.send(load);
+    if (xhttp.status == 200) {
+        var data = []
+        var responseJson = JSON.parse(xhttp.responseText);
+        for (var key in responseJson.results.pay_load) {
+                if (data.indexOf(key) === -1) {
+                    data.push({"word": key, "simlarity score": responseJson.results.pay_load[key]});
+                }
+            }
+        
+      document.getElementById('classTableEE').innerHTML = json2table(data);
+    } else if (xhttp.status == 401) {
+          alert(xhttp.responseText)
+    }
+    else {
+        alert("An error occurred ...")
+    }
+}
+
+function userActionKWE() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("POST", "http://89.165.11.238:9091/Zaal/api", false);
+    xhttp.setRequestHeader("Content-type", "application/json");
+    xhttp.setRequestHeader('Access-Control-Allow-Origin', '*');
+    var doc = document.getElementById("document_kwe").value
+    var load = `{"method": "keyword_extractor", "args":{"document":"${doc}"}}`;
+    xhttp.send(load);
+    if (xhttp.status == 200) {
+        var data = []
+        var responseJson = JSON.parse(xhttp.responseText);
+        for (var key in responseJson.results.pay_load) {
+                if (data.indexOf(key) === -1) {
+                    data.push({"word": key, "word weight": responseJson.results.pay_load[key]});
+                }
+            }
+        
+    
+      document.getElementById('classTableKWE').innerHTML = json2table(data);
+    } else if (xhttp.status == 401) {
+          alert(xhttp.responseText)
+    }
+    else {
+        alert("No connection to server ...")
+    }
+}
+
+
+</script>
+  
+
+<div class="jumbotron text-center">
+  <h1>Zaal</h1>
+  <p>NLP toolkit as service for Persian language</p> 
+</div>
+<div class="container">
+       <h2>Document Level Sentiment Analysis: </h2>
+       <form>
+        <div class="input-group">
+            <span class="input-group-addon">text</span>
+            <input dir="rtl" id="document_dsa" type="text" class="form-control" name="document" placeholder="به نظرم ارزش خریدشو داشت!" style='display:inline; text-align:center;  width:630px;'>
+        </div>
+       </form>
+</div>
+
+<div class="submitbutton text-center" style="margin-top:10px">
+<button onclick="userActionDSA()" type="button" class="btn btn-success">process</button>
+</div>
+
+<div class="myscore_dsa text-center" style="margin-top:20px">
+<input type="text" placeholder="Sentiment Score" name="name" id="score_dsa" class="form-control"  style='display:inline; width:150px; text-align:center'/>
+</div>
+
+<div class="container">
+         <h2>Aspect Based Sentiment Analysis: </h2>
+       <form>
+        <div class="input-group">
+        <span class="input-group-addon">text</span>
+            <input dir="rtl" id="document_asa" type="text" class="form-control" name="document" placeholder="دوربین خیلی خوبیه تو خریدش شک نکنید!" style='display:inline; text-align:center; width:630px;'>
+        </div>
+        <div class="input-group" style="margin-top:10px">
+        <span class="input-group-addon">aspect</span>
+            <input dir="rtl" id="aspect" type="text" class="form-control" name="document" placeholder="دوربین" style='display:inline; text-align:center; width:612px;'>
+        </div>
+       </form>
+</div>
+
+<div class="submitbutton text-center" style="margin-top:10px">
+<button onclick="userActionASA()" type="button" class="btn btn-success">process</button>
+</div>
+
+<div class="myscore_asa text-center" style="margin-top:20px">
+<input type="text" placeholder="Sentiment Score" name="name" id="score_asa" class="form-control"  style='display:inline; width:150px; text-align:center'/>
+</div>
+
+<div class="container">
+      <h2>Document Classification:</h2>
+       <form>
+        <div class="input-group">
+            <span class="input-group-addon">text</span>
+            <input dir="rtl" id="document_dc" type="text" class="form-control" name="document" placeholder=" یکی از متهمان این پرونده به خارج از کشور گریخته است." style='display:inline; text-align:center; width:630px;'>
+        </div>
+       </form>
+</div>
+
+<div class="submitbutton text-center" style="margin-top:30px">
+<button onclick="userActionDC()" type="button" class="btn btn-success">process</button>
+</div>
+
+<div id="classTable" class="dc_table text-center" style="margin-top:30px;" ></div>
+
+<div class="container">
+      <h2>Entity Embedding:</h2>
+       <form>
+        <div class="input-group">
+            <span class="input-group-addon">word</span>
+            <input dir="rtl" id="word" type="text" class="form-control" name="document" placeholder="تبلت" style='display:inline; text-align:center; width:630px;'>
+        </div>
+        <div class="input-group" style="margin-top:10px">
+        <span class="input-group-addon">count</span>
+            <input dir="rtl" id="k" type="text" class="form-control" name="document" placeholder="5" style='display:inline; text-align:center; width:630px;'>
+        </div>
+       </form>
+</div>
+
+<div class="submitbutton text-center" style="margin-top:30px">
+<button onclick="userActionEE()" type="button" class="btn btn-success">process</button>
+</div>
+
+<div id="classTableEE" class="simlarity_table text-center" style="margin-top:30px;" ></div>
+
+<div class="container">
+      <h2>Keyword Extraction:</h2>
+       <form>
+        <div class="input-group">
+            <span class="input-group-addon">text</span>
+            <input dir="rtl" id="document_kwe" type="text" class="form-control" name="document" placeholder="برخی مدیران سابق شرکت بیمه رازی با ثبت خسارات غیرواقعی طی چند سال حدود ۱۰۰ میلیارد تومان از حساب این شرکت برداشت کردند و به محض کشف این فساد، یکی از متهمان این پرونده به خارج از کشور گریخته است." style='display:inline; text-align:center; width:630px'>
+        </div>
+       </form>
+</div>
+
+<div class="submitbutton text-center" style="margin-top:30px">
+<button onclick="userActionKWE()" type="button" class="btn btn-success">پردازش</button>
+</div>
+
+<div id="classTableKWE" class="kweTable text-center" style="margin-top:30px;" ></div>
+
+<p></body>
+</html></p>
+
+					</div>
+				</article>
+
+			</div>
+		</div> 
+
+        <div class="row">
+			<div class="col-sm-8 col-sm-offset-2">
+
+				<div id="share">
+                    
+				</div>
+			</div>
+		</div> 
+		<div class="clearfix"></div>
+
+		<div class="row">
+			<div class="col-sm-8 col-sm-offset-2">
+
+				<div id="comments">
+                    
+				</div>
+			</div>
+		</div> 
+		<div class="clearfix"></div>
+
+	</div>	
+
+</main>
+
+<footer id="footer">
+	<div class="container">
+		<div class="row">
+			
+			<div class="col-md-3 widget">
+				<h3 class="widget-title">Contact</h3>
+				<div class="widget-body">
+					<p>&#43;98 (21) 8862 9853<br>
+						<a href="mailto:zaal@miras-tech.com">zaal@miras-tech.com</a><br>
+						<br>
+						 2nd Alley, North Sheikh Bahaei st., Tehran, Iran.
+					</p>
+				</div>
+			</div>
+			
+
+			
+			<div class="col-md-3 widget">
+				<h3 class="widget-title">Follow me</h3>
+				<div class="widget-body">
+					<p class="follow-me-icons">
+                        
+                            
+                                <a href="https://twitter.com/getzaal" target="_blank"><i class="fa fa-twitter-square fa-2"></i></a>
+                            
+                        
+					</p>
+				</div>
+			</div>
+			
+
+			
+
+			
+
+		</div> 
+	</div>
+</footer>
+
+<footer id="underfooter">
+	<div class="container">
+		<div class="row">
+
+			<div class="col-md-6 widget">
+				
+			</div>
+
+			<div class="col-md-6 widget">
+				<div class="widget-body">
+					<p class="text-right">
+						
+                        Powered by: <a href="https://gohugo.io/" rel="poweredby">Hugo</a>
+                    </p>
+				</div>
+			</div>
+
+		</div> 
+	</div>
+</footer>
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="/miras-tech.github.io/zaal-website/js/template.js"></script>
+<script id="dsq-count-scr" src="///count.js" async></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+</script>
+
+</body>
+</html>
+
