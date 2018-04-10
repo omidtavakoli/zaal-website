@@ -1,0 +1,48 @@
+baseURL = "http://getzaal.com"
+languageCode = "en-us"
+title = "Zaal, NLP as a service for Persian langauge"
+theme = "hugo-initio"
+publishDir = "docs"
+
+[params]
+    name = "Zaal"
+    description = "Persian NLP Toolbox as a Service"
+    email = "zaal@miras-tech.com"
+    phone = "+98 (21) 8862 9853"
+    address = " 2nd Alley, North Sheikh Bahaei st., Tehran, Iran."
+    year = 2018
+    background = ""
+    favicon = ""
+    DateForm = ""
+
+    showSubheader = true
+    showServices = true
+    showRecentWorks = false
+    showDownload = false
+    showClients = false
+
+    footerEnableContact = true
+    footerEnableFollowme = true
+    footerEnableTextWidget = false
+    footerEnableFormWidget = false
+
+[[menu.main]]
+    name = "home"
+    url = "/"
+    weight = 1
+[[menu.main]]
+    name = "blog"
+    url = "/post/"
+    weight = 5
+# [[menu.main]]
+#     name = "team"
+#     url = "/team"
+#     weight = 5
+    
+[[params.social]]
+	title = "twitter"
+	url = "https://twitter.com/getzaal"
+    icon = "fa-twitter-square"
+    footer = true
+    sharethis = true
+    network = "twitter"

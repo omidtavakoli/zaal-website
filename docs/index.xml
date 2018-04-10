@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Zaal, NLP as a service for Persian langauge</title>
+    <link>http://getzaal.com/index.xml</link>
+    <description>Recent content on Zaal, NLP as a service for Persian langauge</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 17 Jun 2013 12:00:00 +0000</lastBuildDate>
+    <atom:link href="http://getzaal.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>team</title>
+      <link>http://getzaal.com/team/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://getzaal.com/team/</guid>
+      <description>
+
+&lt;h3 id=&#34;behnam-sabeti&#34;&gt;Behnam Sabeti&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&#34;../images/behnam.jpeg&#34; alt=&#34;Behnam Sabeti&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The rise of machine learning along with huge amount of data available online, had made a great recipe for Magic! Zaal is an infant right now! But he is on the course of becomming a great magician! Soon!&lt;/p&gt;
+
+&lt;h3 id=&#34;hossein-abedi&#34;&gt;Hossein Abedi&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&#34;../images/me-and-tree-0.jpeg&#34; alt=&#34;Hossein Abedi&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;“I believe that at the end of the century the use of words and general educated opinion will have altered so much that one will be able to speak of machines thinking without expecting to be contradicted.[Alan Turing]”&lt;/p&gt;
+
+&lt;h3 id=&#34;doge-chief-woofing-officer&#34;&gt;Doge [Chief Woofing Officer]&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&#34;../images/CWO.jpg&#34; alt=&#34;cwo&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>http://getzaal.com/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://getzaal.com/about/</guid>
+      <description>&lt;p&gt;Persian language could be considered a major langauge in the family of Indo-Eaurpean languages where its native speakers and people who speak Persian as a second lanaguge add up to 110M people. Despite the vast population of Persian speakers there are not many resources for processing Persian documents in the field of Natural Language Processing (NLP). With this incentive we at &lt;img src=&#34;miras-tech.com&#34; alt=&#34;Miras&#34; /&gt; decided to start a project aiming at provinding an NLP web service with real world applicatons.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>live demo</title>
+      <link>http://getzaal.com/demo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://getzaal.com/demo/</guid>
+      <description>&lt;p&gt;&lt;html lang=&#34;en&#34;&gt;
+&lt;head&gt;
+  &lt;title&gt;تحلیل احساسات&lt;/title&gt;
+  &lt;meta charset=&#34;utf-8&#34;&gt;
+  &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1&#34;&gt;
+  &lt;link rel=&#34;stylesheet&#34; href=&#34;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css&#34;&gt;
+  &lt;script src=&#34;https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js&#34;&gt;&lt;/script&gt;
+  &lt;script src=&#34;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js&#34;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;&lt;/p&gt;
+
+&lt;script type=&#34;text/javascript&#34; language=&#34;javascript&#34;&gt;
+
+function userActionDSA() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.open(&#34;POST&#34;, &#34;http://89.165.11.238:9091/Zaal/api&#34;, false);
+    xhttp.setRequestHeader(&#34;Content-type&#34;, &#34;application/json&#34;);
+    xhttp.setRequestHeader(&#39;Access-Control-Allow-Origin&#39;, &#39;*&#39;);
+    var doc = document.getElementById(&#34;document_dsa&#34;).value
+    var load = `{&#34;method&#34;: &#34;sentiment_analyzer&#34;, &#34;args&#34;:{&#34;document&#34;:&#34;${doc}&#34;}}`;
+    xhttp.send(load);
+    if (xhttp.status == 200) {
+        var obj = JSON.parse(xhttp.responseText);
+        document.getElementById(&#34;score_dsa&#34;).value = obj.results.pay_load.sentiment_score
+    } else if (xhttp.status == 401) {
+          alert(xhttp.responseText)
+    }
+    else {
+        alert(&#34;No connection to server ...&#34;)
+    }
+}
+
+function userActionASA() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.open(&#34;POST&#34;, &#34;http://89.165.11.238:9091/Zaal/api&#34;, false);
+    xhttp.setRequestHeader(&#34;Content-type&#34;, &#34;application/json&#34;);
+    xhttp.setRequestHeader(&#39;Access-Control-Allow-Origin&#39;, &#39;*&#39;);
+    var doc = document.getElementById(&#34;document_asa&#34;).value
+    var aspect = document.getElementById(&#34;aspect&#34;).value
+    
+    var load = `{&#34;method&#34;: &#34;aspect_sentiment_analyzer&#34;, &#34;args&#34;:{&#34;document&#34;: &#34;${doc}&#34;, &#34;aspect&#34;: &#34;${aspect}&#34;}}`;
+    
+    xhttp.send(load);
+    if (xhttp.status == 200) {
+        var obj = JSON.parse(xhttp.responseText);
+        document.getElementById(&#34;score_asa&#34;).value = obj.results.pay_load.sentiment_score
+    } else if (xhttp.status == 401) {
+          alert(xhttp.responseText)
+    }
+    else {
+        alert(&#34;An error occurred ...&#34;)
+    }
+}
+
+
+function json2table(json, classes) {
+  var cols = Object.keys(json[0]);
+  var headerRow = &#39;&#39;;
+  var bodyRows = &#39;&#39;;
+  classes = classes || &#39;&#39;;
+  cols.map(function(col) {
+  headerRow += &#39;&lt;th&gt;&#39; + col + &#39;&lt;/th&gt;&#39;;
+});
+
+json.map(function(row) {
+  bodyRows += &#39;&lt;tr&gt;&#39;;
+
+  cols.map(function(colName) {
+  bodyRows += &#39;&lt;td&gt;&#39; + row[colName] + &#39;&lt;/td&gt;&#39;;
+});
+
+  bodyRows += &#39;&lt;/tr&gt;&#39;;
+});
+
+
+return &#39;&lt;table class=&#34;table table-striped text-center&#34; style=&#34;display:inline; width:300px; text-align:center&#34; &gt;&lt;thead&gt;&lt;tr&gt;&#39; +
+       headerRow +
+       &#39;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&#39; +
+       bodyRows +
+       &#39;&lt;/tbody&gt;&lt;/table&gt;&#39;;
+
+}
+
+function userActionDC() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.open(&#34;POST&#34;, &#34;http://89.165.11.238:9091/Zaal/api&#34;, false);
+    xhttp.setRequestHeader(&#34;Content-type&#34;, &#34;application/json&#34;);
+    xhttp.setRequestHeader(&#39;Access-Control-Allow-Origin&#39;, &#39;*&#39;);
+    var doc = document.getElementById(&#34;document_dc&#34;).value
+    var load = `{&#34;method&#34;: &#34;document_classifier&#34;, &#34;args&#34;:{&#34;document&#34;:&#34;${doc}&#34;}}`;
+    xhttp.send(load);
+    if (xhttp.status == 200) {
+        var data = []
+        var responseJson = JSON.parse(xhttp.responseText);
+        for (var key in responseJson.results.pay_load) {
+                if (data.indexOf(key) === -1) {
+                    data.push({&#34;class&#34;: key, &#34;class weight&#34;: responseJson.results.pay_load[key]});
+                }
+            }
+        
+      
+      document.getElementById(&#39;classTable&#39;).innerHTML = json2table(data);
+    } else if (xhttp.status == 401) {
+          alert(xhttp.responseText)
+    }
+    else {
+        alert(&#34;No connection to server ...&#34;)
+    }
+}
+
+
+function isBlank(str) {
+    return (!str || /^\s*$/.test(str));
+}
+
+function userActionEE() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.open(&#34;POST&#34;, &#34;http://89.165.11.238:9091/Zaal/api&#34;, false);
+    xhttp.setRequestHeader(&#34;Content-type&#34;, &#34;application/json&#34;);
+    xhttp.setRequestHeader(&#39;Access-Control-Allow-Origin&#39;, &#39;*&#39;);
+    var word = document.getElementById(&#34;word&#34;).value
+    var k = document.getElementById(&#34;k&#34;).value
+    
+    if (isBlank(k)){
+    k = 1
+    }
+    
+    var load = `{&#34;method&#34;: &#34;word_suggester&#34;, &#34;args&#34;:{&#34;word&#34;: &#34;${word}&#34;, &#34;k-nearest&#34;: ${k}}}`;
+    
+    xhttp.send(load);
+    if (xhttp.status == 200) {
+        var data = []
+        var responseJson = JSON.parse(xhttp.responseText);
+        for (var key in responseJson.results.pay_load) {
+                if (data.indexOf(key) === -1) {
+                    data.push({&#34;word&#34;: key, &#34;simlarity score&#34;: responseJson.results.pay_load[key]});
+                }
+            }
+        
+      document.getElementById(&#39;classTableEE&#39;).innerHTML = json2table(data);
+    } else if (xhttp.status == 401) {
+          alert(xhttp.responseText)
+    }
+    else {
+        alert(&#34;An error occurred ...&#34;)
+    }
+}
+
+function userActionKWE() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.open(&#34;POST&#34;, &#34;http://89.165.11.238:9091/Zaal/api&#34;, false);
+    xhttp.setRequestHeader(&#34;Content-type&#34;, &#34;application/json&#34;);
+    xhttp.setRequestHeader(&#39;Access-Control-Allow-Origin&#39;, &#39;*&#39;);
+    var doc = document.getElementById(&#34;document_kwe&#34;).value
+    var load = `{&#34;method&#34;: &#34;keyword_extractor&#34;, &#34;args&#34;:{&#34;document&#34;:&#34;${doc}&#34;}}`;
+    xhttp.send(load);
+    if (xhttp.status == 200) {
+        var data = []
+        var responseJson = JSON.parse(xhttp.responseText);
+        for (var key in responseJson.results.pay_load) {
+                if (data.indexOf(key) === -1) {
+                    data.push({&#34;word&#34;: key, &#34;word weight&#34;: responseJson.results.pay_load[key]});
+                }
+            }
+        
+    
+      document.getElementById(&#39;classTableKWE&#39;).innerHTML = json2table(data);
+    } else if (xhttp.status == 401) {
+          alert(xhttp.responseText)
+    }
+    else {
+        alert(&#34;No connection to server ...&#34;)
+    }
+}
+
+
+&lt;/script&gt;
+  
+
+&lt;div class=&#34;jumbotron text-center&#34;&gt;
+  &lt;h1&gt;Zaal&lt;/h1&gt;
+  &lt;p&gt;NLP toolkit as service for Persian language&lt;/p&gt; 
+&lt;/div&gt;
+&lt;div class=&#34;container&#34;&gt;
+       &lt;h2&gt;Document Level Sentiment Analysis: &lt;/h2&gt;
+       &lt;form&gt;
+        &lt;div class=&#34;input-group&#34;&gt;
+            &lt;span class=&#34;input-group-addon&#34;&gt;text&lt;/span&gt;
+            &lt;input dir=&#34;rtl&#34; id=&#34;document_dsa&#34; type=&#34;text&#34; class=&#34;form-control&#34; name=&#34;document&#34; placeholder=&#34;به نظرم ارزش خریدشو داشت!&#34; style=&#39;display:inline; text-align:center;  width:630px;&#39;&gt;
+        &lt;/div&gt;
+       &lt;/form&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;submitbutton text-center&#34; style=&#34;margin-top:10px&#34;&gt;
+&lt;button onclick=&#34;userActionDSA()&#34; type=&#34;button&#34; class=&#34;btn btn-success&#34;&gt;process&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;myscore_dsa text-center&#34; style=&#34;margin-top:20px&#34;&gt;
+&lt;input type=&#34;text&#34; placeholder=&#34;Sentiment Score&#34; name=&#34;name&#34; id=&#34;score_dsa&#34; class=&#34;form-control&#34;  style=&#39;display:inline; width:150px; text-align:center&#39;/&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;container&#34;&gt;
+         &lt;h2&gt;Aspect Based Sentiment Analysis: &lt;/h2&gt;
+       &lt;form&gt;
+        &lt;div class=&#34;input-group&#34;&gt;
+        &lt;span class=&#34;input-group-addon&#34;&gt;text&lt;/span&gt;
+            &lt;input dir=&#34;rtl&#34; id=&#34;document_asa&#34; type=&#34;text&#34; class=&#34;form-control&#34; name=&#34;document&#34; placeholder=&#34;دوربین خیلی خوبیه تو خریدش شک نکنید!&#34; style=&#39;display:inline; text-align:center; width:630px;&#39;&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;input-group&#34; style=&#34;margin-top:10px&#34;&gt;
+        &lt;span class=&#34;input-group-addon&#34;&gt;aspect&lt;/span&gt;
+            &lt;input dir=&#34;rtl&#34; id=&#34;aspect&#34; type=&#34;text&#34; class=&#34;form-control&#34; name=&#34;document&#34; placeholder=&#34;دوربین&#34; style=&#39;display:inline; text-align:center; width:612px;&#39;&gt;
+        &lt;/div&gt;
+       &lt;/form&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;submitbutton text-center&#34; style=&#34;margin-top:10px&#34;&gt;
+&lt;button onclick=&#34;userActionASA()&#34; type=&#34;button&#34; class=&#34;btn btn-success&#34;&gt;process&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;myscore_asa text-center&#34; style=&#34;margin-top:20px&#34;&gt;
+&lt;input type=&#34;text&#34; placeholder=&#34;Sentiment Score&#34; name=&#34;name&#34; id=&#34;score_asa&#34; class=&#34;form-control&#34;  style=&#39;display:inline; width:150px; text-align:center&#39;/&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;container&#34;&gt;
+      &lt;h2&gt;Document Classification:&lt;/h2&gt;
+       &lt;form&gt;
+        &lt;div class=&#34;input-group&#34;&gt;
+            &lt;span class=&#34;input-group-addon&#34;&gt;text&lt;/span&gt;
+            &lt;input dir=&#34;rtl&#34; id=&#34;document_dc&#34; type=&#34;text&#34; class=&#34;form-control&#34; name=&#34;document&#34; placeholder=&#34; یکی از متهمان این پرونده به خارج از کشور گریخته است.&#34; style=&#39;display:inline; text-align:center; width:630px;&#39;&gt;
+        &lt;/div&gt;
+       &lt;/form&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;submitbutton text-center&#34; style=&#34;margin-top:30px&#34;&gt;
+&lt;button onclick=&#34;userActionDC()&#34; type=&#34;button&#34; class=&#34;btn btn-success&#34;&gt;process&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;classTable&#34; class=&#34;dc_table text-center&#34; style=&#34;margin-top:30px;&#34; &gt;&lt;/div&gt;
+
+&lt;div class=&#34;container&#34;&gt;
+      &lt;h2&gt;Entity Embedding:&lt;/h2&gt;
+       &lt;form&gt;
+        &lt;div class=&#34;input-group&#34;&gt;
+            &lt;span class=&#34;input-group-addon&#34;&gt;word&lt;/span&gt;
+            &lt;input dir=&#34;rtl&#34; id=&#34;word&#34; type=&#34;text&#34; class=&#34;form-control&#34; name=&#34;document&#34; placeholder=&#34;تبلت&#34; style=&#39;display:inline; text-align:center; width:630px;&#39;&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;input-group&#34; style=&#34;margin-top:10px&#34;&gt;
+        &lt;span class=&#34;input-group-addon&#34;&gt;count&lt;/span&gt;
+            &lt;input dir=&#34;rtl&#34; id=&#34;k&#34; type=&#34;text&#34; class=&#34;form-control&#34; name=&#34;document&#34; placeholder=&#34;5&#34; style=&#39;display:inline; text-align:center; width:630px;&#39;&gt;
+        &lt;/div&gt;
+       &lt;/form&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;submitbutton text-center&#34; style=&#34;margin-top:30px&#34;&gt;
+&lt;button onclick=&#34;userActionEE()&#34; type=&#34;button&#34; class=&#34;btn btn-success&#34;&gt;process&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;classTableEE&#34; class=&#34;simlarity_table text-center&#34; style=&#34;margin-top:30px;&#34; &gt;&lt;/div&gt;
+
+&lt;div class=&#34;container&#34;&gt;
+      &lt;h2&gt;Keyword Extraction:&lt;/h2&gt;
+       &lt;form&gt;
+        &lt;div class=&#34;input-group&#34;&gt;
+            &lt;span class=&#34;input-group-addon&#34;&gt;text&lt;/span&gt;
+            &lt;input dir=&#34;rtl&#34; id=&#34;document_kwe&#34; type=&#34;text&#34; class=&#34;form-control&#34; name=&#34;document&#34; placeholder=&#34;برخی مدیران سابق شرکت بیمه رازی با ثبت خسارات غیرواقعی طی چند سال حدود ۱۰۰ میلیارد تومان از حساب این شرکت برداشت کردند و به محض کشف این فساد، یکی از متهمان این پرونده به خارج از کشور گریخته است.&#34; style=&#39;display:inline; text-align:center; width:630px&#39;&gt;
+        &lt;/div&gt;
+       &lt;/form&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;submitbutton text-center&#34; style=&#34;margin-top:30px&#34;&gt;
+&lt;button onclick=&#34;userActionKWE()&#34; type=&#34;button&#34; class=&#34;btn btn-success&#34;&gt;پردازش&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;classTableKWE&#34; class=&#34;kweTable text-center&#34; style=&#34;margin-top:30px;&#34; &gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;/body&gt;
+&lt;/html&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Vivamus Lacus Mauris</title>
+      <link>http://getzaal.com/post/vivamus-lacus-mauris/</link>
+      <pubDate>Mon, 17 Jun 2013 12:00:00 +0000</pubDate>
+      
+      <guid>http://getzaal.com/post/vivamus-lacus-mauris/</guid>
+      <description>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit, rerum voluptates veniam. Esse, nihil, ea, eaque, quos cum id tempore voluptate nisi nemo debitis impedit officiis culpa repellat voluptatum in aperiam error quo minima ratione ex pariatur maxime eligendi dolore nesciunt molestiae enim alias atque commodi delectus perferendis. Blanditiis, iste placeat nostrum in! Eligendi, omnis, unde, quos ullam nesciunt molestias quis a saepe nisi distinctio molestiae voluptate obcaecati officiis consequuntur similique aspernatur rerum sequi placeat iure quaerat itaque libero officia recusandae ad corrupti aperiam cum beatae. Adipisci ad natus deleniti.&lt;/p&gt;
+
+&lt;p&gt;Dolores harum alias consequatur blanditiis. Inventore, quod, ullam veritatis eum ratione neque quis fugit quae optio facilis in ipsa! Maiores, quia, possimus repellendus iusto nostrum nisi doloribus qui excepturi ducimus veritatis molestiae autem consequatur quae ex nihil id sapiente minima adipisci. Quibusdam, aperiam, sapiente, nobis, possimus vero laudantium delectus esse minus quo nihil perspiciatis accusamus. Cupiditate sapiente illum accusantium animi pariatur sed minima nam.&lt;/p&gt;
+
+&lt;p&gt;Harum, consectetur, quia nisi fugiat quasi ea amet cum inventore aperiam optio qui perspiciatis debitis molestiae laborum minima doloremque ullam eum nesciunt repellendus dolor dicta cumque deserunt. Quaerat, saepe, maxime, quod, dolor nisi assumenda aut est quos optio animi aliquid quidem voluptates adipisci hic recusandae dicta quis eligendi illo ducimus asperiores reiciendis odit distinctio natus? In, reprehenderit, facere, ipsam, vel architecto autem temporibus a quidem voluptatum at nesciunt quas facilis. Soluta, excepturi, nihil, illum dicta hic ratione tenetur voluptate dolorum a tempore dignissimos reprehenderit voluptas expedita officiis enim minus adipisci?&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Document Classification</title>
+      <link>http://getzaal.com/service/service2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://getzaal.com/service/service2/</guid>
+      <description>&lt;p&gt;Assignning meaningful topics to your texts never been easier. Zaal enables you to
+automatically find the abstract topics of your text smoothly using a RESTful API.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Entity Embbeding</title>
+      <link>http://getzaal.com/service/service3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://getzaal.com/service/service3/</guid>
+      <description>&lt;p&gt;View your categorical data set from different dimensions.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Keyword Extraction</title>
+      <link>http://getzaal.com/service/service5/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://getzaal.com/service/service5/</guid>
+      <description>&lt;p&gt;I don&amp;rsquo;t think they tried to market it to the billionaire, spelunking, base-jumping crowd. i did the same thing to gandhi, he didn&amp;rsquo;t eat for three weeks. i once heard a wise man say there are no perfect men.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Sentiment Analysis</title>
+      <link>http://getzaal.com/service/service1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://getzaal.com/service/service1/</guid>
+      <description>&lt;p&gt;Use machine learning and deep learning to analyze text sentiment and get actionable insight about the text.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Sentiment Analysis</title>
+      <link>http://getzaal.com/service/service4/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://getzaal.com/service/service4/</guid>
+      <description>&lt;p&gt;I don&amp;rsquo;t think they tried to market it to the billionaire, spelunking, base-jumping crowd. i did the same thing to gandhi, he didn&amp;rsquo;t eat for three weeks. i once heard a wise man say there are no perfect men.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
