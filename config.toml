@@ -1,4 +1,4 @@
-# baseURL = "http://getzaal.com"
+baseURL = "http://getzaal.com/"
 languageCode = "en-us"
 title = "Zaal, NLP as a service for Persian langauge"
 theme = "hugo-initio"
