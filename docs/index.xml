@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Zaal, NLP as a service for Persian langauge</title>
-    <link>/index.xml</link>
+    <link>http://getzaal.com/index.xml</link>
     <description>Recent content on Zaal, NLP as a service for Persian langauge</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 17 Jun 2013 12:00:00 +0000</lastBuildDate>
-    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://getzaal.com/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>team</title>
-      <link>/team/</link>
+      <link>http://getzaal.com/team/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/team/</guid>
+      <guid>http://getzaal.com/team/</guid>
       <description>
 
 &lt;h3 id=&#34;behnam-sabeti&#34;&gt;Behnam Sabeti&lt;/h3&gt;
@@ -37,20 +37,20 @@
     
     <item>
       <title>About</title>
-      <link>/about/</link>
+      <link>http://getzaal.com/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/about/</guid>
+      <guid>http://getzaal.com/about/</guid>
       <description>&lt;p&gt;Persian language could be considered a major langauge in the family of Indo-Eaurpean languages where its native speakers and people who speak Persian as a second lanaguge add up to 110M people. Despite the vast population of Persian speakers there are not many resources for processing Persian documents in the field of Natural Language Processing (NLP). With this incentive we at &lt;img src=&#34;miras-tech.com&#34; alt=&#34;Miras&#34; /&gt; decided to start a project aiming at provinding an NLP web service with real world applicatons.&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>live demo</title>
-      <link>/demo/</link>
+      <link>http://getzaal.com/demo/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/demo/</guid>
+      <guid>http://getzaal.com/demo/</guid>
       <description>&lt;p&gt;&lt;html lang=&#34;en&#34;&gt;
 &lt;head&gt;
   &lt;title&gt;تحلیل احساسات&lt;/title&gt;
@@ -333,10 +333,10 @@ function userActionKWE() {
     
     <item>
       <title>Vivamus Lacus Mauris</title>
-      <link>/post/vivamus-lacus-mauris/</link>
+      <link>http://getzaal.com/post/vivamus-lacus-mauris/</link>
       <pubDate>Mon, 17 Jun 2013 12:00:00 +0000</pubDate>
       
-      <guid>/post/vivamus-lacus-mauris/</guid>
+      <guid>http://getzaal.com/post/vivamus-lacus-mauris/</guid>
       <description>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit, rerum voluptates veniam. Esse, nihil, ea, eaque, quos cum id tempore voluptate nisi nemo debitis impedit officiis culpa repellat voluptatum in aperiam error quo minima ratione ex pariatur maxime eligendi dolore nesciunt molestiae enim alias atque commodi delectus perferendis. Blanditiis, iste placeat nostrum in! Eligendi, omnis, unde, quos ullam nesciunt molestias quis a saepe nisi distinctio molestiae voluptate obcaecati officiis consequuntur similique aspernatur rerum sequi placeat iure quaerat itaque libero officia recusandae ad corrupti aperiam cum beatae. Adipisci ad natus deleniti.&lt;/p&gt;
 
 &lt;p&gt;Dolores harum alias consequatur blanditiis. Inventore, quod, ullam veritatis eum ratione neque quis fugit quae optio facilis in ipsa! Maiores, quia, possimus repellendus iusto nostrum nisi doloribus qui excepturi ducimus veritatis molestiae autem consequatur quae ex nihil id sapiente minima adipisci. Quibusdam, aperiam, sapiente, nobis, possimus vero laudantium delectus esse minus quo nihil perspiciatis accusamus. Cupiditate sapiente illum accusantium animi pariatur sed minima nam.&lt;/p&gt;
@@ -347,10 +347,10 @@ function userActionKWE() {
     
     <item>
       <title>Document Classification</title>
-      <link>/service/service2/</link>
+      <link>http://getzaal.com/service/service2/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/service/service2/</guid>
+      <guid>http://getzaal.com/service/service2/</guid>
       <description>&lt;p&gt;Assignning meaningful topics to your texts never been easier. Zaal enables you to
 automatically find the abstract topics of your text smoothly using a RESTful API.&lt;/p&gt;
 
@@ -361,10 +361,10 @@ automatically find the abstract topics of your text smoothly using a RESTful API
     
     <item>
       <title>Entity Embbeding</title>
-      <link>/service/service3/</link>
+      <link>http://getzaal.com/service/service3/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/service/service3/</guid>
+      <guid>http://getzaal.com/service/service3/</guid>
       <description>&lt;p&gt;View your categorical data set from different dimensions.&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;
@@ -374,10 +374,10 @@ automatically find the abstract topics of your text smoothly using a RESTful API
     
     <item>
       <title>Keyword Extraction</title>
-      <link>/service/service5/</link>
+      <link>http://getzaal.com/service/service5/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/service/service5/</guid>
+      <guid>http://getzaal.com/service/service5/</guid>
       <description>&lt;p&gt;I don&amp;rsquo;t think they tried to market it to the billionaire, spelunking, base-jumping crowd. i did the same thing to gandhi, he didn&amp;rsquo;t eat for three weeks. i once heard a wise man say there are no perfect men.&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;
@@ -387,10 +387,10 @@ automatically find the abstract topics of your text smoothly using a RESTful API
     
     <item>
       <title>Sentiment Analysis</title>
-      <link>/service/service1/</link>
+      <link>http://getzaal.com/service/service1/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/service/service1/</guid>
+      <guid>http://getzaal.com/service/service1/</guid>
       <description>&lt;p&gt;Use machine learning and deep learning to analyze text sentiment and get actionable insight about the text.&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;
@@ -400,10 +400,10 @@ automatically find the abstract topics of your text smoothly using a RESTful API
     
     <item>
       <title>Sentiment Analysis</title>
-      <link>/service/service4/</link>
+      <link>http://getzaal.com/service/service4/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/service/service4/</guid>
+      <guid>http://getzaal.com/service/service4/</guid>
       <description>&lt;p&gt;I don&amp;rsquo;t think they tried to market it to the billionaire, spelunking, base-jumping crowd. i did the same thing to gandhi, he didn&amp;rsquo;t eat for three weeks. i once heard a wise man say there are no perfect men.&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;

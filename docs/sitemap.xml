@@ -2,55 +2,55 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>/team/</loc>
+    <loc>http://getzaal.com/team/</loc>
   </url>
   
   <url>
-    <loc>/about/</loc>
+    <loc>http://getzaal.com/about/</loc>
   </url>
   
   <url>
-    <loc>/demo/</loc>
+    <loc>http://getzaal.com/demo/</loc>
   </url>
   
   <url>
-    <loc>/post/vivamus-lacus-mauris/</loc>
+    <loc>http://getzaal.com/post/vivamus-lacus-mauris/</loc>
     <lastmod>2013-06-17T12:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/service/service2/</loc>
+    <loc>http://getzaal.com/service/service2/</loc>
   </url>
   
   <url>
-    <loc>/service/service3/</loc>
+    <loc>http://getzaal.com/service/service3/</loc>
   </url>
   
   <url>
-    <loc>/service/service5/</loc>
+    <loc>http://getzaal.com/service/service5/</loc>
   </url>
   
   <url>
-    <loc>/post/</loc>
+    <loc>http://getzaal.com/post/</loc>
     <lastmod>2013-06-17T12:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/service/service1/</loc>
+    <loc>http://getzaal.com/service/service1/</loc>
   </url>
   
   <url>
-    <loc>/service/service4/</loc>
+    <loc>http://getzaal.com/service/service4/</loc>
   </url>
   
   <url>
-    <loc>/service/</loc>
+    <loc>http://getzaal.com/service/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/</loc>
+    <loc>http://getzaal.com/</loc>
     <lastmod>2013-06-17T12:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
