@@ -17,43 +17,45 @@
       <guid>http://getzaal.com/team/</guid>
       <description>
 
-&lt;h3 id=&#34;behnam-sabeti&#34;&gt;Behnam Sabeti&lt;/h3&gt;
+&lt;h5 id=&#34;behnam-sabeti&#34;&gt;Behnam Sabeti&lt;/h5&gt;
 
-&lt;p&gt;&lt;img src=&#34;../images/behnam.jpeg&#34; alt=&#34;Behnam Sabeti&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img width=&#34;200&#34; alt=&#34;portfolio_view&#34; src=&#34;../images/behnam.jpeg&#34;&gt;&lt;/p&gt;
 
 &lt;p&gt;The rise of machine learning along with huge amount of data available online, had made a great recipe for Magic! Zaal is an infant right now! But he is on the course of becomming a great magician! Soon!&lt;/p&gt;
 
-&lt;h3 id=&#34;hossein-abedi&#34;&gt;Hossein Abedi&lt;/h3&gt;
+&lt;h5 id=&#34;hossein-abedi&#34;&gt;Hossein Abedi&lt;/h5&gt;
 
-&lt;p&gt;&lt;img src=&#34;../images/me-and-tree-0.jpeg&#34; alt=&#34;Hossein Abedi&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img width=&#34;200&#34; alt=&#34;portfolio_view&#34; src=&#34;../images/me-and-tree-0.jpeg&#34;&gt;&lt;/p&gt;
 
-&lt;p&gt;“I believe that at the end of the century the use of words and general educated opinion will have altered so much that one will be able to speak of machines thinking without expecting to be contradicted.[Alan Turing]”&lt;/p&gt;
+&lt;p&gt;I believe that at the end of the century the use of words and general educated opinion will have altered so much that one will be able to speak of machines thinking without expecting to be contradicted.[Alan Turing].&lt;/p&gt;
 
-&lt;h3 id=&#34;doge-chief-woofing-officer&#34;&gt;Doge [Chief Woofing Officer]&lt;/h3&gt;
+&lt;h5 id=&#34;doge-chief-woofing-officer&#34;&gt;Doge [Chief Woofing Officer]&lt;/h5&gt;
 
-&lt;p&gt;&lt;img src=&#34;../images/CWO.jpg&#34; alt=&#34;cwo&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img width=&#34;200&#34; alt=&#34;portfolio_view&#34; src=&#34;../images/CWO.jpg&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;wow!&lt;/p&gt;
 </description>
     </item>
     
     <item>
-      <title>About</title>
-      <link>http://getzaal.com/about/</link>
+      <title> REST API</title>
+      <link>http://getzaal.com/API/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://getzaal.com/about/</guid>
-      <description>&lt;p&gt;Persian language could be considered a major langauge in the family of Indo-Eaurpean languages where its native speakers and people who speak Persian as a second lanaguge add up to 110M people. Despite the vast population of Persian speakers there are not many resources for processing Persian documents in the field of Natural Language Processing (NLP). With this incentive we at &lt;img src=&#34;miras-tech.com&#34; alt=&#34;Miras&#34; /&gt; decided to start a project aiming at provinding an NLP web service with real world applicatons.&lt;/p&gt;
+      <guid>http://getzaal.com/API/</guid>
+      <description>&lt;p&gt;Coming soon &amp;hellip;&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>live demo</title>
-      <link>http://getzaal.com/demo/</link>
+      <link>http://getzaal.com/live-demo/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://getzaal.com/demo/</guid>
+      <guid>http://getzaal.com/live-demo/</guid>
       <description>&lt;p&gt;&lt;html lang=&#34;en&#34;&gt;
 &lt;head&gt;
-  &lt;title&gt;تحلیل احساسات&lt;/title&gt;
+  &lt;title&gt;Zaal&lt;/title&gt;
   &lt;meta charset=&#34;utf-8&#34;&gt;
   &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1&#34;&gt;
   &lt;link rel=&#34;stylesheet&#34; href=&#34;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css&#34;&gt;
@@ -64,12 +66,19 @@
 
 &lt;script type=&#34;text/javascript&#34; language=&#34;javascript&#34;&gt;
 
+function sortByKey(array, key) {
+return array.sort(function(a, b) {
+    var x = a[key]; var y = b[key];
+    return ((x &gt; y) ? -1 : ((x &lt; y) ? 1 : 0));
+});
+}
+
 function userActionDSA() {
     var xhttp = new XMLHttpRequest();
     xhttp.open(&#34;POST&#34;, &#34;http://89.165.11.238:9091/Zaal/api&#34;, false);
     xhttp.setRequestHeader(&#34;Content-type&#34;, &#34;application/json&#34;);
     xhttp.setRequestHeader(&#39;Access-Control-Allow-Origin&#39;, &#39;*&#39;);
-    var doc = document.getElementById(&#34;document_dsa&#34;).value
+    var doc = document.getElementById(&#34;document_dsa&#34;).value.replace(/[\n&#34;&#39;]/g, &#34;&#34;);
     var load = `{&#34;method&#34;: &#34;sentiment_analyzer&#34;, &#34;args&#34;:{&#34;document&#34;:&#34;${doc}&#34;}}`;
     xhttp.send(load);
     if (xhttp.status == 200) {
@@ -88,8 +97,8 @@ function userActionASA() {
     xhttp.open(&#34;POST&#34;, &#34;http://89.165.11.238:9091/Zaal/api&#34;, false);
     xhttp.setRequestHeader(&#34;Content-type&#34;, &#34;application/json&#34;);
     xhttp.setRequestHeader(&#39;Access-Control-Allow-Origin&#39;, &#39;*&#39;);
-    var doc = document.getElementById(&#34;document_asa&#34;).value
-    var aspect = document.getElementById(&#34;aspect&#34;).value
+    var doc = document.getElementById(&#34;document_asa&#34;).value.replace(/[\n&#34;&#39;]/g, &#34;&#34;);
+    var aspect = document.getElementById(&#34;aspect&#34;).value.replace(/[\n&#34;&#39;]/g, &#34;&#34;);
     
     var load = `{&#34;method&#34;: &#34;aspect_sentiment_analyzer&#34;, &#34;args&#34;:{&#34;document&#34;: &#34;${doc}&#34;, &#34;aspect&#34;: &#34;${aspect}&#34;}}`;
     
@@ -125,13 +134,11 @@ json.map(function(row) {
   bodyRows += &#39;&lt;/tr&gt;&#39;;
 });
 
-
 return &#39;&lt;table class=&#34;table table-striped text-center&#34; style=&#34;display:inline; width:300px; text-align:center&#34; &gt;&lt;thead&gt;&lt;tr&gt;&#39; +
        headerRow +
        &#39;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&#39; +
        bodyRows +
        &#39;&lt;/tbody&gt;&lt;/table&gt;&#39;;
-
 }
 
 function userActionDC() {
@@ -139,19 +146,19 @@ function userActionDC() {
     xhttp.open(&#34;POST&#34;, &#34;http://89.165.11.238:9091/Zaal/api&#34;, false);
     xhttp.setRequestHeader(&#34;Content-type&#34;, &#34;application/json&#34;);
     xhttp.setRequestHeader(&#39;Access-Control-Allow-Origin&#39;, &#39;*&#39;);
-    var doc = document.getElementById(&#34;document_dc&#34;).value
+    var doc = document.getElementById(&#34;document_dc&#34;).value.replace(/[\n&#34;&#39;]/g, &#34;&#34;);
     var load = `{&#34;method&#34;: &#34;document_classifier&#34;, &#34;args&#34;:{&#34;document&#34;:&#34;${doc}&#34;}}`;
     xhttp.send(load);
     if (xhttp.status == 200) {
         var data = []
         var responseJson = JSON.parse(xhttp.responseText);
+      
         for (var key in responseJson.results.pay_load) {
                 if (data.indexOf(key) === -1) {
-                    data.push({&#34;class&#34;: key, &#34;class weight&#34;: responseJson.results.pay_load[key]});
+                    data.push({&#34;class&#34;: key, &#34;class_weight&#34;: responseJson.results.pay_load[key]});
                 }
             }
-        
-      
+      sortByKey(data, &#34;class_weight&#34;)
       document.getElementById(&#39;classTable&#39;).innerHTML = json2table(data);
     } else if (xhttp.status == 401) {
           alert(xhttp.responseText)
@@ -161,6 +168,13 @@ function userActionDC() {
     }
 }
 
+String.prototype.allReplace = function(obj) {
+    var retStr = this;
+    for (var x in obj) {
+        retStr = retStr.replace(new RegExp(x, &#39;g&#39;), obj[x]);
+    }
+    return retStr;
+};
 
 function isBlank(str) {
     return (!str || /^\s*$/.test(str));
@@ -171,13 +185,12 @@ function userActionEE() {
     xhttp.open(&#34;POST&#34;, &#34;http://89.165.11.238:9091/Zaal/api&#34;, false);
     xhttp.setRequestHeader(&#34;Content-type&#34;, &#34;application/json&#34;);
     xhttp.setRequestHeader(&#39;Access-Control-Allow-Origin&#39;, &#39;*&#39;);
-    var word = document.getElementById(&#34;word&#34;).value
-    var k = document.getElementById(&#34;k&#34;).value
+    var word = document.getElementById(&#34;word&#34;).value.replace(/[\n&#34;&#39;]/g, &#34;&#34;);
+    var k = document.getElementById(&#34;k&#34;).value.allReplace({&#34;۰&#34;: &#34;0&#34;, &#34;۱&#34;: &#34;1&#34;, &#34;۲&#34;: &#34;2&#34;, &#34;۳&#34;: &#34;3&#34;, &#34;۴&#34;: &#34;4&#34;, &#34;۵&#34;: &#34;5&#34;, &#34;۶&#34;: &#34;6&#34;, &#34;۷&#34;: &#34;7&#34;, &#34;۸&#34;: &#34;8&#34;, &#34;۹&#34;: &#34;9&#34;})
     
     if (isBlank(k)){
     k = 1
     }
-    
     var load = `{&#34;method&#34;: &#34;word_suggester&#34;, &#34;args&#34;:{&#34;word&#34;: &#34;${word}&#34;, &#34;k-nearest&#34;: ${k}}}`;
     
     xhttp.send(load);
@@ -186,10 +199,10 @@ function userActionEE() {
         var responseJson = JSON.parse(xhttp.responseText);
         for (var key in responseJson.results.pay_load) {
                 if (data.indexOf(key) === -1) {
-                    data.push({&#34;word&#34;: key, &#34;simlarity score&#34;: responseJson.results.pay_load[key]});
+                    data.push({&#34;word&#34;: key, &#34;simlarity_score&#34;: responseJson.results.pay_load[key]});
                 }
             }
-        
+      sortByKey(data, &#34;simlarity_score&#34;)
       document.getElementById(&#39;classTableEE&#39;).innerHTML = json2table(data);
     } else if (xhttp.status == 401) {
           alert(xhttp.responseText)
@@ -204,7 +217,7 @@ function userActionKWE() {
     xhttp.open(&#34;POST&#34;, &#34;http://89.165.11.238:9091/Zaal/api&#34;, false);
     xhttp.setRequestHeader(&#34;Content-type&#34;, &#34;application/json&#34;);
     xhttp.setRequestHeader(&#39;Access-Control-Allow-Origin&#39;, &#39;*&#39;);
-    var doc = document.getElementById(&#34;document_kwe&#34;).value
+    var doc = document.getElementById(&#34;document_kwe&#34;).value.replace(/[\n&#34;&#39;]/g, &#34;&#34;);
     var load = `{&#34;method&#34;: &#34;keyword_extractor&#34;, &#34;args&#34;:{&#34;document&#34;:&#34;${doc}&#34;}}`;
     xhttp.send(load);
     if (xhttp.status == 200) {
@@ -212,11 +225,11 @@ function userActionKWE() {
         var responseJson = JSON.parse(xhttp.responseText);
         for (var key in responseJson.results.pay_load) {
                 if (data.indexOf(key) === -1) {
-                    data.push({&#34;word&#34;: key, &#34;word weight&#34;: responseJson.results.pay_load[key]});
+                    data.push({&#34;word&#34;: key, &#34;word_weight&#34;: responseJson.results.pay_load[key]});
                 }
             }
         
-    
+      sortByKey(data, &#34;word_weight&#34;)
       document.getElementById(&#39;classTableKWE&#39;).innerHTML = json2table(data);
     } else if (xhttp.status == 401) {
           alert(xhttp.responseText)
@@ -226,9 +239,7 @@ function userActionKWE() {
     }
 }
 
-
 &lt;/script&gt;
-  
 
 &lt;div class=&#34;jumbotron text-center&#34;&gt;
   &lt;h1&gt;Zaal&lt;/h1&gt;
@@ -237,10 +248,9 @@ function userActionKWE() {
 &lt;div class=&#34;container&#34;&gt;
        &lt;h2&gt;Document Level Sentiment Analysis: &lt;/h2&gt;
        &lt;form&gt;
-        &lt;div class=&#34;input-group&#34;&gt;
-            &lt;span class=&#34;input-group-addon&#34;&gt;text&lt;/span&gt;
-            &lt;input dir=&#34;rtl&#34; id=&#34;document_dsa&#34; type=&#34;text&#34; class=&#34;form-control&#34; name=&#34;document&#34; placeholder=&#34;به نظرم ارزش خریدشو داشت!&#34; style=&#39;display:inline; text-align:center;  width:630px;&#39;&gt;
-        &lt;/div&gt;
+         &lt;div class=&#34;form-group&#34;&gt;
+            &lt;textarea class=&#34;form-control&#34; placeholder=&#34;به نظرم ارزش خریدشو داشت!&#34; rows=&#34;5&#34; dir=&#34;rtl&#34; id=&#34;document_dsa&#34; name=&#34;document&#34; style=&#39;display:inline; width:680px;&#39;&gt;&lt;/textarea&gt;
+        &lt;/div&gt; 
        &lt;/form&gt;
 &lt;/div&gt;
 
@@ -255,13 +265,12 @@ function userActionKWE() {
 &lt;div class=&#34;container&#34;&gt;
          &lt;h2&gt;Aspect Based Sentiment Analysis: &lt;/h2&gt;
        &lt;form&gt;
-        &lt;div class=&#34;input-group&#34;&gt;
-        &lt;span class=&#34;input-group-addon&#34;&gt;text&lt;/span&gt;
-            &lt;input dir=&#34;rtl&#34; id=&#34;document_asa&#34; type=&#34;text&#34; class=&#34;form-control&#34; name=&#34;document&#34; placeholder=&#34;دوربین خیلی خوبیه تو خریدش شک نکنید!&#34; style=&#39;display:inline; text-align:center; width:630px;&#39;&gt;
-        &lt;/div&gt;
+        &lt;div class=&#34;form-group&#34;&gt;
+            &lt;textarea class=&#34;form-control&#34; placeholder=&#34;به نظرم دوربین خوبیه&#34; rows=&#34;5&#34; dir=&#34;rtl&#34; id=&#34;document_asa&#34; name=&#34;document&#34; style=&#39;display:inline; width:680px;&#39;&gt;&lt;/textarea&gt;
+        &lt;/div&gt; 
         &lt;div class=&#34;input-group&#34; style=&#34;margin-top:10px&#34;&gt;
         &lt;span class=&#34;input-group-addon&#34;&gt;aspect&lt;/span&gt;
-            &lt;input dir=&#34;rtl&#34; id=&#34;aspect&#34; type=&#34;text&#34; class=&#34;form-control&#34; name=&#34;document&#34; placeholder=&#34;دوربین&#34; style=&#39;display:inline; text-align:center; width:612px;&#39;&gt;
+            &lt;input dir=&#34;rtl&#34; id=&#34;aspect&#34; type=&#34;text&#34; class=&#34;form-control&#34; placeholder=&#34;دوربین&#34;  name=&#34;document&#34; style=&#39;display:inline; text-align:center; width:612px;&#39;&gt;
         &lt;/div&gt;
        &lt;/form&gt;
 &lt;/div&gt;
@@ -277,9 +286,8 @@ function userActionKWE() {
 &lt;div class=&#34;container&#34;&gt;
       &lt;h2&gt;Document Classification:&lt;/h2&gt;
        &lt;form&gt;
-        &lt;div class=&#34;input-group&#34;&gt;
-            &lt;span class=&#34;input-group-addon&#34;&gt;text&lt;/span&gt;
-            &lt;input dir=&#34;rtl&#34; id=&#34;document_dc&#34; type=&#34;text&#34; class=&#34;form-control&#34; name=&#34;document&#34; placeholder=&#34; یکی از متهمان این پرونده به خارج از کشور گریخته است.&#34; style=&#39;display:inline; text-align:center; width:630px;&#39;&gt;
+        &lt;div class=&#34;form-group&#34;&gt;
+            &lt;textarea class=&#34;form-control&#34; placeholder=&#34;به گزارش خبرنگار قضایی فارس، سعید مرتضوی دادستان سابق تهران که به دو سال حبس قطعی محکوم شده است، روز یک‌شنبه (1397/2/2) توسط مأمورین پلیس دستگیر و بعد از ظهر همان روز جهت تحمل محکومیت حبس به زندان اوین تحویل گردید.&#34; rows=&#34;5&#34; dir=&#34;rtl&#34; id=&#34;document_dc&#34; name=&#34;document&#34; style=&#39;display:inline; width:680px;&#39;&gt;&lt;/textarea&gt;
         &lt;/div&gt;
        &lt;/form&gt;
 &lt;/div&gt;
@@ -291,7 +299,7 @@ function userActionKWE() {
 &lt;div id=&#34;classTable&#34; class=&#34;dc_table text-center&#34; style=&#34;margin-top:30px;&#34; &gt;&lt;/div&gt;
 
 &lt;div class=&#34;container&#34;&gt;
-      &lt;h2&gt;Entity Embedding:&lt;/h2&gt;
+      &lt;h2&gt;Word Embedding:&lt;/h2&gt;
        &lt;form&gt;
         &lt;div class=&#34;input-group&#34;&gt;
             &lt;span class=&#34;input-group-addon&#34;&gt;word&lt;/span&gt;
@@ -313,21 +321,30 @@ function userActionKWE() {
 &lt;div class=&#34;container&#34;&gt;
       &lt;h2&gt;Keyword Extraction:&lt;/h2&gt;
        &lt;form&gt;
-        &lt;div class=&#34;input-group&#34;&gt;
-            &lt;span class=&#34;input-group-addon&#34;&gt;text&lt;/span&gt;
-            &lt;input dir=&#34;rtl&#34; id=&#34;document_kwe&#34; type=&#34;text&#34; class=&#34;form-control&#34; name=&#34;document&#34; placeholder=&#34;برخی مدیران سابق شرکت بیمه رازی با ثبت خسارات غیرواقعی طی چند سال حدود ۱۰۰ میلیارد تومان از حساب این شرکت برداشت کردند و به محض کشف این فساد، یکی از متهمان این پرونده به خارج از کشور گریخته است.&#34; style=&#39;display:inline; text-align:center; width:630px&#39;&gt;
+        &lt;div class=&#34;form-group&#34;&gt;
+            &lt;textarea class=&#34;form-control&#34; placeholder=&#34;به گزارش گروه بین‌الملل خبرگزاری فارس، دیپلمات‌های مطلع در آستانه سفر رسمی روز دوشنبه «امانوئل ماکرون» رئیس جمهور فرانسه به آمریکا و دیدار با «دونالد ترامپ» رئیس جمهور آمریکا، به کار سخت متقاعد کردن رئیس جمهور آمریکا برای ماندن در برجام اشاره کردند.&#34;  rows=&#34;5&#34; dir=&#34;rtl&#34; id=&#34;document_kwe&#34; name=&#34;document&#34; style=&#39;display:inline; width:680px;&#39;&gt;&lt;/textarea&gt;
         &lt;/div&gt;
        &lt;/form&gt;
 &lt;/div&gt;
 
 &lt;div class=&#34;submitbutton text-center&#34; style=&#34;margin-top:30px&#34;&gt;
-&lt;button onclick=&#34;userActionKWE()&#34; type=&#34;button&#34; class=&#34;btn btn-success&#34;&gt;پردازش&lt;/button&gt;
+&lt;button onclick=&#34;userActionKWE()&#34; type=&#34;button&#34; class=&#34;btn btn-success&#34;&gt;process&lt;/button&gt;
 &lt;/div&gt;
 
 &lt;div id=&#34;classTableKWE&#34; class=&#34;kweTable text-center&#34; style=&#34;margin-top:30px;&#34; &gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;/body&gt;
 &lt;/html&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>http://getzaal.com/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://getzaal.com/about/</guid>
+      <description>&lt;p&gt;Persian language could be considered a major langauge in the family of Indo-Eaurpean languages where its native speakers and people who speak Persian as a second lanaguge add up to about 110M people worldwide. Despite the vast population of Persian speakers there are not many resources for processing Persian documents in the field of Natural Language Processing (NLP). With this incentive we at &lt;a href=&#34;https://miras-tech.com&#34;&gt;Miras&lt;/a&gt; decided to start a project, aiming at provinding an NLP web service with real world applicatons.&lt;/p&gt;
 </description>
     </item>
     

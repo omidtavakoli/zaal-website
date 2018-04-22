@@ -1,12 +1,12 @@
 +++
 menu = "main"
 title = "live demo"
-weight = 10
+weight = 7
 +++
 
 <html lang="en">
 <head>
-  <title>تحلیل احساسات</title>
+  <title>Zaal</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -17,12 +17,19 @@ weight = 10
 
 <script type="text/javascript" language="javascript">
 
+function sortByKey(array, key) {
+return array.sort(function(a, b) {
+    var x = a[key]; var y = b[key];
+    return ((x > y) ? -1 : ((x < y) ? 1 : 0));
+});
+}
+
 function userActionDSA() {
     var xhttp = new XMLHttpRequest();
     xhttp.open("POST", "http://89.165.11.238:9091/Zaal/api", false);
     xhttp.setRequestHeader("Content-type", "application/json");
     xhttp.setRequestHeader('Access-Control-Allow-Origin', '*');
-    var doc = document.getElementById("document_dsa").value
+    var doc = document.getElementById("document_dsa").value.replace(/[\n"']/g, "");
     var load = `{"method": "sentiment_analyzer", "args":{"document":"${doc}"}}`;
     xhttp.send(load);
     if (xhttp.status == 200) {
@@ -41,8 +48,8 @@ function userActionASA() {
     xhttp.open("POST", "http://89.165.11.238:9091/Zaal/api", false);
     xhttp.setRequestHeader("Content-type", "application/json");
     xhttp.setRequestHeader('Access-Control-Allow-Origin', '*');
-    var doc = document.getElementById("document_asa").value
-    var aspect = document.getElementById("aspect").value
+    var doc = document.getElementById("document_asa").value.replace(/[\n"']/g, "");
+    var aspect = document.getElementById("aspect").value.replace(/[\n"']/g, "");
     
     var load = `{"method": "aspect_sentiment_analyzer", "args":{"document": "${doc}", "aspect": "${aspect}"}}`;
     
@@ -78,13 +85,11 @@ json.map(function(row) {
   bodyRows += '</tr>';
 });
 
-
 return '<table class="table table-striped text-center" style="display:inline; width:300px; text-align:center" ><thead><tr>' +
        headerRow +
        '</tr></thead><tbody>' +
        bodyRows +
        '</tbody></table>';
-
 }
 
 function userActionDC() {
@@ -92,19 +97,19 @@ function userActionDC() {
     xhttp.open("POST", "http://89.165.11.238:9091/Zaal/api", false);
     xhttp.setRequestHeader("Content-type", "application/json");
     xhttp.setRequestHeader('Access-Control-Allow-Origin', '*');
-    var doc = document.getElementById("document_dc").value
+    var doc = document.getElementById("document_dc").value.replace(/[\n"']/g, "");
     var load = `{"method": "document_classifier", "args":{"document":"${doc}"}}`;
     xhttp.send(load);
     if (xhttp.status == 200) {
         var data = []
         var responseJson = JSON.parse(xhttp.responseText);
+      
         for (var key in responseJson.results.pay_load) {
                 if (data.indexOf(key) === -1) {
-                    data.push({"class": key, "class weight": responseJson.results.pay_load[key]});
+                    data.push({"class": key, "class_weight": responseJson.results.pay_load[key]});
                 }
             }
-        
-      
+      sortByKey(data, "class_weight")
       document.getElementById('classTable').innerHTML = json2table(data);
     } else if (xhttp.status == 401) {
           alert(xhttp.responseText)
@@ -114,6 +119,13 @@ function userActionDC() {
     }
 }
 
+String.prototype.allReplace = function(obj) {
+    var retStr = this;
+    for (var x in obj) {
+        retStr = retStr.replace(new RegExp(x, 'g'), obj[x]);
+    }
+    return retStr;
+};
 
 function isBlank(str) {
     return (!str || /^\s*$/.test(str));
@@ -124,13 +136,12 @@ function userActionEE() {
     xhttp.open("POST", "http://89.165.11.238:9091/Zaal/api", false);
     xhttp.setRequestHeader("Content-type", "application/json");
     xhttp.setRequestHeader('Access-Control-Allow-Origin', '*');
-    var word = document.getElementById("word").value
-    var k = document.getElementById("k").value
+    var word = document.getElementById("word").value.replace(/[\n"']/g, "");
+    var k = document.getElementById("k").value.allReplace({"۰": "0", "۱": "1", "۲": "2", "۳": "3", "۴": "4", "۵": "5", "۶": "6", "۷": "7", "۸": "8", "۹": "9"})
     
     if (isBlank(k)){
     k = 1
     }
-    
     var load = `{"method": "word_suggester", "args":{"word": "${word}", "k-nearest": ${k}}}`;
     
     xhttp.send(load);
@@ -139,10 +150,10 @@ function userActionEE() {
         var responseJson = JSON.parse(xhttp.responseText);
         for (var key in responseJson.results.pay_load) {
                 if (data.indexOf(key) === -1) {
-                    data.push({"word": key, "simlarity score": responseJson.results.pay_load[key]});
+                    data.push({"word": key, "simlarity_score": responseJson.results.pay_load[key]});
                 }
             }
-        
+      sortByKey(data, "simlarity_score")
       document.getElementById('classTableEE').innerHTML = json2table(data);
     } else if (xhttp.status == 401) {
           alert(xhttp.responseText)
@@ -157,7 +168,7 @@ function userActionKWE() {
     xhttp.open("POST", "http://89.165.11.238:9091/Zaal/api", false);
     xhttp.setRequestHeader("Content-type", "application/json");
     xhttp.setRequestHeader('Access-Control-Allow-Origin', '*');
-    var doc = document.getElementById("document_kwe").value
+    var doc = document.getElementById("document_kwe").value.replace(/[\n"']/g, "");
     var load = `{"method": "keyword_extractor", "args":{"document":"${doc}"}}`;
     xhttp.send(load);
     if (xhttp.status == 200) {
@@ -165,11 +176,11 @@ function userActionKWE() {
         var responseJson = JSON.parse(xhttp.responseText);
         for (var key in responseJson.results.pay_load) {
                 if (data.indexOf(key) === -1) {
-                    data.push({"word": key, "word weight": responseJson.results.pay_load[key]});
+                    data.push({"word": key, "word_weight": responseJson.results.pay_load[key]});
                 }
             }
         
-    
+      sortByKey(data, "word_weight")
       document.getElementById('classTableKWE').innerHTML = json2table(data);
     } else if (xhttp.status == 401) {
           alert(xhttp.responseText)
@@ -179,9 +190,8 @@ function userActionKWE() {
     }
 }
 
-
 </script>
-  
+
 <div class="jumbotron text-center">
   <h1>Zaal</h1>
   <p>NLP toolkit as service for Persian language</p> 
@@ -189,10 +199,9 @@ function userActionKWE() {
 <div class="container">
        <h2>Document Level Sentiment Analysis: </h2>
        <form>
-        <div class="input-group">
-            <span class="input-group-addon">text</span>
-            <input dir="rtl" id="document_dsa" type="text" class="form-control" name="document" placeholder="به نظرم ارزش خریدشو داشت!" style='display:inline; text-align:center;  width:630px;'>
-        </div>
+         <div class="form-group">
+            <textarea class="form-control" placeholder="به نظرم ارزش خریدشو داشت!" rows="5" dir="rtl" id="document_dsa" name="document" style='display:inline; width:680px;'></textarea>
+        </div> 
        </form>
 </div>
 
@@ -207,13 +216,12 @@ function userActionKWE() {
 <div class="container">
          <h2>Aspect Based Sentiment Analysis: </h2>
        <form>
-        <div class="input-group">
-        <span class="input-group-addon">text</span>
-            <input dir="rtl" id="document_asa" type="text" class="form-control" name="document" placeholder="دوربین خیلی خوبیه تو خریدش شک نکنید!" style='display:inline; text-align:center; width:630px;'>
-        </div>
+        <div class="form-group">
+            <textarea class="form-control" placeholder="به نظرم دوربین خوبیه" rows="5" dir="rtl" id="document_asa" name="document" style='display:inline; width:680px;'></textarea>
+        </div> 
         <div class="input-group" style="margin-top:10px">
         <span class="input-group-addon">aspect</span>
-            <input dir="rtl" id="aspect" type="text" class="form-control" name="document" placeholder="دوربین" style='display:inline; text-align:center; width:612px;'>
+            <input dir="rtl" id="aspect" type="text" class="form-control" placeholder="دوربین"  name="document" style='display:inline; text-align:center; width:612px;'>
         </div>
        </form>
 </div>
@@ -230,9 +238,8 @@ function userActionKWE() {
 <div class="container">
       <h2>Document Classification:</h2>
        <form>
-        <div class="input-group">
-            <span class="input-group-addon">text</span>
-            <input dir="rtl" id="document_dc" type="text" class="form-control" name="document" placeholder=" یکی از متهمان این پرونده به خارج از کشور گریخته است." style='display:inline; text-align:center; width:630px;'>
+        <div class="form-group">
+            <textarea class="form-control" placeholder="به گزارش خبرنگار قضایی فارس، سعید مرتضوی دادستان سابق تهران که به دو سال حبس قطعی محکوم شده است، روز یک‌شنبه (1397/2/2) توسط مأمورین پلیس دستگیر و بعد از ظهر همان روز جهت تحمل محکومیت حبس به زندان اوین تحویل گردید." rows="5" dir="rtl" id="document_dc" name="document" style='display:inline; width:680px;'></textarea>
         </div>
        </form>
 </div>
@@ -244,7 +251,7 @@ function userActionKWE() {
 <div id="classTable" class="dc_table text-center" style="margin-top:30px;" ></div>
 
 <div class="container">
-      <h2>Entity Embedding:</h2>
+      <h2>Word Embedding:</h2>
        <form>
         <div class="input-group">
             <span class="input-group-addon">word</span>
@@ -267,15 +274,14 @@ function userActionKWE() {
 <div class="container">
       <h2>Keyword Extraction:</h2>
        <form>
-        <div class="input-group">
-            <span class="input-group-addon">text</span>
-            <input dir="rtl" id="document_kwe" type="text" class="form-control" name="document" placeholder="برخی مدیران سابق شرکت بیمه رازی با ثبت خسارات غیرواقعی طی چند سال حدود ۱۰۰ میلیارد تومان از حساب این شرکت برداشت کردند و به محض کشف این فساد، یکی از متهمان این پرونده به خارج از کشور گریخته است." style='display:inline; text-align:center; width:630px'>
+        <div class="form-group">
+            <textarea class="form-control" placeholder="به گزارش گروه بین‌الملل خبرگزاری فارس، دیپلمات‌های مطلع در آستانه سفر رسمی روز دوشنبه «امانوئل ماکرون» رئیس جمهور فرانسه به آمریکا و دیدار با «دونالد ترامپ» رئیس جمهور آمریکا، به کار سخت متقاعد کردن رئیس جمهور آمریکا برای ماندن در برجام اشاره کردند."  rows="5" dir="rtl" id="document_kwe" name="document" style='display:inline; width:680px;'></textarea>
         </div>
        </form>
 </div>
 
 <div class="submitbutton text-center" style="margin-top:30px">
-<button onclick="userActionKWE()" type="button" class="btn btn-success">پردازش</button>
+<button onclick="userActionKWE()" type="button" class="btn btn-success">process</button>
 </div>
 
 <div id="classTableKWE" class="kweTable text-center" style="margin-top:30px;" ></div>
