@@ -1,9 +1,9 @@
 +++
-title = "Sentiment Analysis"
+title = "Keyword Extraction"
 +++
 
-I don't think they tried to market it to the billionaire, spelunking, base-jumping crowd. i did the same thing to gandhi, he didn't eat for three weeks. i once heard a wise man say there are no perfect men.
 
-<!--more-->
+Extracting keywords that could be good representatives of a document is one of the most important tasks when dealing with corpora of text. Readers could benefit heavily from keywords because they can judge more quickly whether the text is worth reading or not. Website creators benefit from keywords because they can group similar content by its topics. These are just a few benefits of keword extraction process. 
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Using Zaal you could extract meaningful keywords seamlessly and smoothly using a RESTful API.
+For more Info please see the `live demo` section.

@@ -30,14 +30,10 @@ publishDir = "docs"
     name = "home"
     url = "/"
     weight = 1
-[[menu.main]]
-    name = "blog"
-    url = "/post/"
-    weight = 5
-# [[menu.main]]
-#     name = "team"
-#     url = "/team"
-#     weight = 5
+#[[menu.main]]
+#    name = "blog"
+#    url = "/post/"
+#    weight = 5
     
 [[params.social]]
 	title = "twitter"

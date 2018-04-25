@@ -1,9 +1,8 @@
 +++
-title = "Entity Embbeding"
+title = "Word Embbeding"
 +++
 
-View your categorical data set from different dimensions.
+Using vector space models (VSMs) we can represent (embed) words in a continuous vector space where semantically similar words and phrases are mapped to nearby points.
 
-<!--more-->
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+View your categorical data set from different dimensions using Zaal. Find semantically similar
+words in a corpus of text using Zaal.

@@ -5,6 +5,13 @@ type = "about"
 weight = 5
 +++
 
+##### Doge [Chief Woofing Officer]
+
+<img width="200" alt="portfolio_view" src="../images/CWO.jpg">
+
+wow! 
+
+
 ##### Behnam Sabeti
 
 <img width="200" alt="portfolio_view" src="../images/behnam.jpeg">
@@ -15,12 +22,5 @@ The rise of machine learning along with huge amount of data available online, ha
 
 <img width="200" alt="portfolio_view" src="../images/me-and-tree-0.jpeg">
 
-I believe that at the end of the century the use of words and general educated opinion will have altered so much that one will be able to speak of machines thinking without expecting to be contradicted.[Alan Turing].
-
-
-##### Doge [Chief Woofing Officer]
-
-<img width="200" alt="portfolio_view" src="../images/CWO.jpg">
-
-wow! 
+What need is there to weep over parts of life? The whole of it calls for tears!
 

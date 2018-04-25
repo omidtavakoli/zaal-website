@@ -14,7 +14,7 @@
   </url>
   
   <url>
-    <loc>http://getzaal.com/about/</loc>
+    <loc>http://getzaal.com/vision/</loc>
   </url>
   
   <url>
@@ -27,11 +27,7 @@
   </url>
   
   <url>
-    <loc>http://getzaal.com/service/service3/</loc>
-  </url>
-  
-  <url>
-    <loc>http://getzaal.com/service/service5/</loc>
+    <loc>http://getzaal.com/service/service4/</loc>
   </url>
   
   <url>
@@ -45,12 +41,12 @@
   </url>
   
   <url>
-    <loc>http://getzaal.com/service/service4/</loc>
+    <loc>http://getzaal.com/service/</loc>
+    <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://getzaal.com/service/</loc>
-    <priority>0</priority>
+    <loc>http://getzaal.com/service/service3/</loc>
   </url>
   
   <url>
