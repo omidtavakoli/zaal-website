@@ -26,7 +26,7 @@ return array.sort(function(a, b) {
 
 function userActionDSA() {
     var xhttp = new XMLHttpRequest();
-    xhttp.open("POST", "http://89.165.11.238:9091/Zaal/api", false);
+    xhttp.open("POST", "http://88.99.203.40:9691/Zaal/api", false);
     xhttp.setRequestHeader("Content-type", "application/json");
     xhttp.setRequestHeader('Access-Control-Allow-Origin', '*');
     var doc = document.getElementById("document_dsa").value.replace(/[\n"']/g, "");
@@ -45,7 +45,7 @@ function userActionDSA() {
 
 function userActionASA() {
     var xhttp = new XMLHttpRequest();
-    xhttp.open("POST", "http://89.165.11.238:9091/Zaal/api", false);
+    xhttp.open("POST", "http://88.99.203.40:9691/Zaal/api", false);
     xhttp.setRequestHeader("Content-type", "application/json");
     xhttp.setRequestHeader('Access-Control-Allow-Origin', '*');
     var doc = document.getElementById("document_asa").value.replace(/[\n"']/g, "");
@@ -94,7 +94,7 @@ return '<table class="table table-striped text-center" style="display:inline; wi
 
 function userActionDC() {
     var xhttp = new XMLHttpRequest();
-    xhttp.open("POST", "http://89.165.11.238:9091/Zaal/api", false);
+    xhttp.open("POST", "http://88.99.203.40:9691/Zaal/api", false);
     xhttp.setRequestHeader("Content-type", "application/json");
     xhttp.setRequestHeader('Access-Control-Allow-Origin', '*');
     var doc = document.getElementById("document_dc").value.replace(/[\n"']/g, "");
@@ -133,7 +133,7 @@ function isBlank(str) {
 
 function userActionEE() {
     var xhttp = new XMLHttpRequest();
-    xhttp.open("POST", "http://89.165.11.238:9091/Zaal/api", false);
+    xhttp.open("POST", "http://88.99.203.40:9691/Zaal/api", false);
     xhttp.setRequestHeader("Content-type", "application/json");
     xhttp.setRequestHeader('Access-Control-Allow-Origin', '*');
     var word = document.getElementById("word").value.replace(/[\n"']/g, "");
@@ -165,7 +165,7 @@ function userActionEE() {
 
 function userActionKWE() {
     var xhttp = new XMLHttpRequest();
-    xhttp.open("POST", "http://89.165.11.238:9091/Zaal/api", false);
+    xhttp.open("POST", "http://88.99.203.40:9691/Zaal/api", false);
     xhttp.setRequestHeader("Content-type", "application/json");
     xhttp.setRequestHeader('Access-Control-Allow-Origin', '*');
     var doc = document.getElementById("document_kwe").value.replace(/[\n"']/g, "");
