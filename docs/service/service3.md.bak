@@ -1,5 +1,5 @@
 +++
-title = "Word Embedding"
+title = "Word Embbeding"
 +++
 
 Using vector space models (VSMs) we can represent (embed) words in a continuous vector space where semantically similar words and phrases are mapped to nearby points.

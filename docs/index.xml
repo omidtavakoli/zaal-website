@@ -27,7 +27,7 @@
 
 &lt;p&gt;&lt;img width=&#34;200&#34; alt=&#34;portfolio_view&#34; src=&#34;../images/behnam.jpeg&#34;&gt;&lt;/p&gt;
 
-&lt;p&gt;The rise of machine learning along with huge amount of data available online, had made a great recipe for Magic! Zaal is an infant right now! But he is on the course of becomming a great magician! Soon!&lt;/p&gt;
+&lt;p&gt;The rise of machine learning along with huge amount of data available online, had made a great recipe for Magic! Zaal is an infant right now! But he is on the course of becoming a great magician! Soon!&lt;/p&gt;
 
 &lt;h5 id=&#34;hossein-abedi&#34;&gt;Hossein Abedi&lt;/h5&gt;
 
@@ -346,17 +346,17 @@ function userActionKWE() {
       <guid>http://getzaal.com/vision/</guid>
       <description>
 
-&lt;p&gt;Persian language could be considered a major langauge in the family of Indo-Eaurpean languages where its native speakers and people who speak Persian as a second lanaguge add up to about 110M people worldwide. Despite the vast population of Persian speakers there are not many resources for processing Persian documents in the field of Natural Language Processing (NLP). With this incentive we at &lt;a href=&#34;https://miras-tech.com&#34;&gt;Miras&lt;/a&gt; decided to start a project, aiming at provinding an NLP web service with real world applicatons.&lt;/p&gt;
+&lt;p&gt;Persian language could be considered a major language in the family of Indo-European languages where its native speakers and people who speak Persian as a second language add up to about 110M people worldwide. Despite the vast population of Persian speakers there are not many resources for processing Persian documents in the field of Natural Language Processing (NLP). With this incentive we at &lt;a href=&#34;https://miras-tech.com&#34;&gt;Miras&lt;/a&gt; decided to start a project, aiming at providing an NLP web service with real world applications.&lt;/p&gt;
 
 &lt;h4 id=&#34;the-main-features-and-goals-of-zaal&#34;&gt;The main features and goals of Zaal&lt;/h4&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Document Level Sentiment Analyisis&lt;/li&gt;
-&lt;li&gt;Aspect Based Sentiment Analyisis&lt;/li&gt;
+&lt;li&gt;Document Level Sentiment Analysis&lt;/li&gt;
+&lt;li&gt;Aspect Based Sentiment Analysis&lt;/li&gt;
 &lt;li&gt;Document Classification&lt;/li&gt;
 &lt;li&gt;Word Embedding&lt;/li&gt;
 &lt;li&gt;Keyword Extraction&lt;/li&gt;
-&lt;li&gt;Text Sumerization (coming soon)&lt;/li&gt;
+&lt;li&gt;Text Summerization (coming soon)&lt;/li&gt;
 &lt;li&gt;Formal-Informal Text Classification (coming soon)&lt;/li&gt;
 &lt;li&gt;Informal to Formal Text Conversion (coming soon)&lt;/li&gt;
 &lt;li&gt;Title Extraction (coming soon)&lt;/li&gt;
@@ -387,11 +387,11 @@ function userActionKWE() {
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://getzaal.com/service/service2/</guid>
-      <description>&lt;p&gt;Classifiying documents automatically is one of the main activities for effectively managing text and unstructured information.&lt;/p&gt;
+      <description>&lt;p&gt;Classifying documents automatically is one of the main activities for effectively managing text and unstructured information.&lt;/p&gt;
 
 &lt;p&gt;Also referred to as categorization, clustering or text classification, automatic document classification allows you to divide and organize text based on a set of predefined categories that allow rapid, easy retrieval of information in the search phase.&lt;/p&gt;
 
-&lt;p&gt;Assignning meaningful topics to your texts never been easier. Zaal enables you to
+&lt;p&gt;Assigning meaningful topics to your texts never been easier. Zaal enables you to
 automatically find the abstract topics of your text using a RESTful API.&lt;/p&gt;
 </description>
     </item>
@@ -402,7 +402,7 @@ automatically find the abstract topics of your text using a RESTful API.&lt;/p&g
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://getzaal.com/service/service4/</guid>
-      <description>&lt;p&gt;Extracting keywords that could be good representatives of a document is one of the most important tasks when dealing with corpora of text. Readers could benefit heavily from keywords because they can judge more quickly whether the text is worth reading or not. Website creators benefit from keywords because they can group similar content by its topics. These are just a few benefits of keword extraction process.&lt;/p&gt;
+      <description>&lt;p&gt;Extracting keywords that could be good representatives of a document is one of the most important tasks when dealing with corpora of text. Readers could benefit heavily from keywords because they can judge more quickly whether the text is worth reading or not. Website creators benefit from keywords because they can group similar content by its topics. These are just a few benefits of keyword extraction process.&lt;/p&gt;
 
 &lt;p&gt;Using Zaal you could extract meaningful keywords seamlessly and smoothly using a RESTful API.
 For more Info please see the &lt;code&gt;live demo&lt;/code&gt; section.&lt;/p&gt;
@@ -418,12 +418,12 @@ For more Info please see the &lt;code&gt;live demo&lt;/code&gt; section.&lt;/p&g
       <description>&lt;p&gt;Using machine learning and one of its thriving domain (i.e. deep learning) we built a system to analyze sentiments associated with various texts in order to get actionable insights where texts bear subjective tonality such as comments and reviews.&lt;/p&gt;
 
 &lt;p&gt;Zaal provides two types of sentiment analysis methods, &lt;strong&gt;Document Level&lt;/strong&gt; and &lt;strong&gt;Aspect Based&lt;/strong&gt;.
-In the former comments and reviews are classfied into &lt;code&gt;negative&lt;/code&gt;, &lt;code&gt;neutral&lt;/code&gt; and &lt;code&gt;poistive&lt;/code&gt; in a hollistic approach but in the latter, a comment or review is broken into meaningful parts that each part could have its specific tonality about something (i.e. an aspect).&lt;/p&gt;
+In the former comments and reviews are classified into &lt;code&gt;negative&lt;/code&gt;, &lt;code&gt;neutral&lt;/code&gt; and &lt;code&gt;positive&lt;/code&gt; in a holistic approach but in the latter, a comment or review is broken into meaningful parts that each part could have its specific tonality about something (i.e. an aspect).&lt;/p&gt;
 </description>
     </item>
     
     <item>
-      <title>Word Embbeding</title>
+      <title>Word Embedding</title>
       <link>http://getzaal.com/service/service3/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
