@@ -122,6 +122,26 @@ return array.sort(function(a, b) {
 });
 }
 
+function userActionProfanityDetector() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("POST", "http://88.99.203.40:9691/Zaal/api", false);
+    xhttp.setRequestHeader("Content-type", "application/json");
+    xhttp.setRequestHeader('Access-Control-Allow-Origin', '*');
+    var doc = document.getElementById("document_pda").value.replace(/[\n"']/g, "");
+    var load = `{"method": "profanity_detection", "args":{"document":"${doc}"}}`;
+    xhttp.send(load);
+    if (xhttp.status == 200) {
+        var obj = JSON.parse(xhttp.responseText);
+        document.getElementById("score_pd").value = obj.results.pay_load.profanity_score
+    } else if (xhttp.status == 401) {
+          alert(xhttp.responseText)
+    }
+    else {
+        alert("No connection to server ...")
+    }
+}
+
+
 function userActionDSA() {
     var xhttp = new XMLHttpRequest();
     xhttp.open("POST", "http://88.99.203.40:9691/Zaal/api", false);
@@ -294,6 +314,24 @@ function userActionKWE() {
   <h1>Zaal</h1>
   <p>NLP toolkit as service for Persian language</p> 
 </div>
+
+<div class="container">
+       <h2>Profanity Detection: </h2>
+       <form>
+         <div class="form-group">
+            <textarea class="form-control" placeholder="مرتیکه ... انقدر چرت نگو" rows="5" dir="rtl" id="document_pda" name="document" style='display:inline; width:680px;'></textarea>
+        </div> 
+       </form>
+</div>
+
+<div class="submitbutton text-center" style="margin-top:10px">
+<button onclick="userActionProfanityDetector()" type="button" class="btn btn-success">process</button>
+</div>
+
+<div class="myscore_psore text-center" style="margin-top:20px">
+<input type="text" placeholder="Profanity Score" name="name" id="score_pd" class="form-control"  style='display:inline; width:150px; text-align:center'/>
+</div>
+
 <div class="container">
        <h2>Document Level Sentiment Analysis: </h2>
        <form>

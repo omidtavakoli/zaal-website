@@ -73,6 +73,26 @@ return array.sort(function(a, b) {
 });
 }
 
+function userActionProfanityDetector() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.open(&#34;POST&#34;, &#34;http://88.99.203.40:9691/Zaal/api&#34;, false);
+    xhttp.setRequestHeader(&#34;Content-type&#34;, &#34;application/json&#34;);
+    xhttp.setRequestHeader(&#39;Access-Control-Allow-Origin&#39;, &#39;*&#39;);
+    var doc = document.getElementById(&#34;document_pda&#34;).value.replace(/[\n&#34;&#39;]/g, &#34;&#34;);
+    var load = `{&#34;method&#34;: &#34;profanity_detection&#34;, &#34;args&#34;:{&#34;document&#34;:&#34;${doc}&#34;}}`;
+    xhttp.send(load);
+    if (xhttp.status == 200) {
+        var obj = JSON.parse(xhttp.responseText);
+        document.getElementById(&#34;score_pd&#34;).value = obj.results.pay_load.profanity_score
+    } else if (xhttp.status == 401) {
+          alert(xhttp.responseText)
+    }
+    else {
+        alert(&#34;No connection to server ...&#34;)
+    }
+}
+
+
 function userActionDSA() {
     var xhttp = new XMLHttpRequest();
     xhttp.open(&#34;POST&#34;, &#34;http://88.99.203.40:9691/Zaal/api&#34;, false);
@@ -245,6 +265,24 @@ function userActionKWE() {
   &lt;h1&gt;Zaal&lt;/h1&gt;
   &lt;p&gt;NLP toolkit as service for Persian language&lt;/p&gt; 
 &lt;/div&gt;
+
+&lt;div class=&#34;container&#34;&gt;
+       &lt;h2&gt;Profanity Detection: &lt;/h2&gt;
+       &lt;form&gt;
+         &lt;div class=&#34;form-group&#34;&gt;
+            &lt;textarea class=&#34;form-control&#34; placeholder=&#34;مرتیکه ... انقدر چرت نگو&#34; rows=&#34;5&#34; dir=&#34;rtl&#34; id=&#34;document_pda&#34; name=&#34;document&#34; style=&#39;display:inline; width:680px;&#39;&gt;&lt;/textarea&gt;
+        &lt;/div&gt; 
+       &lt;/form&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;submitbutton text-center&#34; style=&#34;margin-top:10px&#34;&gt;
+&lt;button onclick=&#34;userActionProfanityDetector()&#34; type=&#34;button&#34; class=&#34;btn btn-success&#34;&gt;process&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;myscore_psore text-center&#34; style=&#34;margin-top:20px&#34;&gt;
+&lt;input type=&#34;text&#34; placeholder=&#34;Profanity Score&#34; name=&#34;name&#34; id=&#34;score_pd&#34; class=&#34;form-control&#34;  style=&#39;display:inline; width:150px; text-align:center&#39;/&gt;
+&lt;/div&gt;
+
 &lt;div class=&#34;container&#34;&gt;
        &lt;h2&gt;Document Level Sentiment Analysis: &lt;/h2&gt;
        &lt;form&gt;
